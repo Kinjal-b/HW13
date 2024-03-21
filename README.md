@@ -4,6 +4,7 @@
 
 ### What is convolution operation and how does it work?
 Answer:  
+
 The convolution operation is a mathematical process commonly used in image processing and deep learning, particularly in Convolutional Neural Networks (CNNs). It serves to apply a filter (also known as a kernel) to an input image or signal to extract certain features, such as edges, textures, or patterns. This operation is central to the functioning of CNNs, where it enables the network to automatically and adaptively learn spatial hierarchies of features.
 
 How Convolution Works:  
@@ -60,6 +61,7 @@ Convolutional layers allow neural networks to efficiently process spatial data, 
 
 ### How are sizes of the original image, the filter, and the resultant convoluted image are relted?
 Answer:  
+
 The sizes of the original image, the filter (also known as the kernel), and the resultant convoluted image are related through a straightforward mathematical relationship, which is influenced by three main factors: the size of the input image, the size of the filter, and the convolution operation parameters including padding and stride. Here's how they relate:
 
 1. Input Image Size:
@@ -96,5 +98,60 @@ Understanding these relationships is crucial for designing CNN architectures, as
 ### What is padding and why is it needed?
 Answer:  
 
+Padding is a technique used in the context of convolutional neural networks (CNNs) and image processing, where extra pixels are added to the border of an input image before applying a convolution operation. The most common type of padding is zero-padding, where pixels with a value of zero are added around the image, although other types of padding can also be used. The purpose of padding includes several key aspects:
+
+1. Dimensionality Control:
+Without padding, each convolution operation reduces the size of the output feature map compared to the input. For deep networks with many convolutional layers, this can quickly reduce the spatial dimensions of the feature maps to a point where further convolution operations are not possible. Padding allows the control of output dimensions, enabling the design of deeper networks.  
+
+2. Edge Information Preservation:
+In the absence of padding, pixels on the edges and corners of the image are used less frequently in the convolution operations than pixels in the center. This can lead to less learning from the edges, which are often critical for understanding the overall context of an image. Padding ensures that edge pixels have a similar opportunity to be part of the convolution operation, preserving edge information.  
+
+3. Same Padding:
+A specific type of padding, known as "same" padding, is designed to ensure that the output feature map has the same spatial dimensions as the input image (when the stride is 1). This is particularly useful for designing networks where the dimensionality of the output is important to maintain throughout the layers.  
+
+4. Avoiding Shrinking Feature Maps:
+For certain applications, it's crucial to maintain the spatial dimensions of the feature maps to allow for accurate spatial mappings back to the original image space. This is particularly important in tasks like object detection and segmentation, where the exact location of objects within the input space is critical.  
+
+5. Improving Performance:
+By allowing convolutional layers to focus on regions at the border of the image, padding can help in improving the performance of the network by providing a more comprehensive understanding of the input space.
+Types of Padding:
+Zero Padding: The most common form, where zeros are added around the border.
+Reflect Padding: Border pixels are mirrored around the edge.
+Replicate Padding: The border pixels are replicated next to the edge.
+The choice of padding type and the amount of padding can be adjusted based on the specific requirements of the application and the network architecture. Padding is a simple yet powerful tool in the design of CNNs, enabling more flexible and effective model designs.
+
 ### What is strided convolution and why is it needed?
-Answer:  
+Answer:   
+
+Strided convolution is a variant of the standard convolution operation used in convolutional neural networks (CNNs), where the filter (or kernel) is applied across the input image or feature map with a certain step size known as the stride. Unlike the standard convolution where the stride is typically 1 (the filter moves one pixel at a time), in strided convolution, the stride can be greater than 1, meaning the filter skips over pixels as it moves across the image.
+
+How Strided Convolution Works:
+With a stride of S, the filter jumps S pixels at a time when it slides over the image. For example:
+
+A stride of 2 moves the filter two pixels at a time.
+This results in fewer positions where the filter is applied, reducing the spatial dimensions of the output feature map compared to a stride of 1.  
+
+Why Strided Convolution is Needed  
+
+Dimensionality Reduction:
+
+Strided convolution is an effective way to reduce the size of the feature maps, decreasing the computational load for subsequent layers and reducing the amount of memory required to store the feature maps. This is particularly useful in deep networks, where computational efficiency is crucial.  
+
+Pooling Alternative:
+
+It can serve as an alternative to pooling layers (e.g., max pooling), achieving similar effects of down-sampling and dimensionality reduction without the need for additional layers. This simplifies the architecture while still providing the benefits of spatial invariance and reduced sensitivity to small translations in the input.  
+
+Increasing the Field of View:
+
+By effectively skipping over parts of the input, strided convolutions increase the field of view of the filter. This means each element in the output feature map corresponds to a larger region in the input image, helping the network to capture more global features as it goes deeper.  
+
+Efficiency and Speed:
+
+In many applications, especially those involving very large images or real-time processing, the speed and efficiency gains from using strided convolutions are significant. Reducing the spatial dimensions early in the network allows for quicker processing through the rest of the network.  
+
+Feature Extraction at Multiple Scales:
+
+Strided convolutions can help in extracting features at multiple scales or resolutions. By adjusting the stride, a network can be designed to focus on both local details (with smaller strides) and more global patterns (with larger strides), which is beneficial for tasks like object detection where objects of interest can vary significantly in size.  
+
+Conclusion:
+Strided convolution offers a versatile tool within CNNs for controlling the size of feature maps, improving computational efficiency, and adjusting the network's focus on different scales of features. By carefully choosing the stride, along with other parameters like filter size and padding, it's possible to design highly effective neural networks tailored to a wide range of tasks in image processing, computer vision, and beyond.
