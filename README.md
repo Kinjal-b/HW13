@@ -2,7 +2,7 @@
 
 ## Non-programming Assignment
 
-### What is convolution operation and how does it work?
+### Q1. What is convolution operation and how does it work?
 Answer:  
 
 The convolution operation is a mathematical process commonly used in image processing and deep learning, particularly in Convolutional Neural Networks (CNNs). It serves to apply a filter (also known as a kernel) to an input image or signal to extract certain features, such as edges, textures, or patterns. This operation is central to the functioning of CNNs, where it enables the network to automatically and adaptively learn spatial hierarchies of features.
@@ -33,7 +33,7 @@ Dimensionality Reduction: Through the process of applying filters, convolution c
 Learnable Filters: In CNNs, the weights of the filters are learned automatically during training, allowing the network to identify which features are most important for a given task, such as image classification or object detection.
 The convolution operation, through its simplicity and efficiency, allows neural networks to build complex and hierarchical representations of images, making it a cornerstone of modern image recognition and computer vision applications.
 
-### Why do we need convolutional layers in neural networks?
+### Q2. Why do we need convolutional layers in neural networks?
 Answer:   
 
 Convolutional layers are a cornerstone in the architecture of Convolutional Neural Networks (CNNs), a class of deep neural networks highly effective in tasks related to image processing, computer vision, and beyond. Their introduction and widespread use have several motivations and benefits:
@@ -59,7 +59,7 @@ Often coupled with convolutional layers, pooling layers (e.g., max pooling) redu
 Conclusion:  
 Convolutional layers allow neural networks to efficiently process spatial data, extract critical features, and build up a hierarchical representation of the input, making them essential for tasks requiring the analysis of visual inputs. The effectiveness of CNNs in a wide range of applications underscores the importance of convolutional layers in contemporary AI and machine learning solutions.
 
-### How are sizes of the original image, the filter, and the resultant convoluted image are relted?
+### Q3. How are sizes of the original image, the filter, and the resultant convoluted image are relted?
 Answer:  
 
 The sizes of the original image, the filter (also known as the kernel), and the resultant convoluted image are related through a straightforward mathematical relationship, which is influenced by three main factors: the size of the input image, the size of the filter, and the convolution operation parameters including padding and stride. Here's how they relate:
@@ -95,7 +95,7 @@ Same Padding: Padding is chosen such that the output size is the same as the inp
 Stride Greater than 1 (S>1): Increases the reduction factor of the output size, effectively down-sampling the input image.
 Understanding these relationships is crucial for designing CNN architectures, as it affects how deep a network can go, the field of view of the filters at different layers, and the overall capacity of the network to capture and utilize spatial hierarchies of features.
 
-### What is padding and why is it needed?
+### Q4. What is padding and why is it needed?
 Answer:  
 
 Padding is a technique used in the context of convolutional neural networks (CNNs) and image processing, where extra pixels are added to the border of an input image before applying a convolution operation. The most common type of padding is zero-padding, where pixels with a value of zero are added around the image, although other types of padding can also be used. The purpose of padding includes several key aspects:
@@ -120,7 +120,7 @@ Reflect Padding: Border pixels are mirrored around the edge.
 Replicate Padding: The border pixels are replicated next to the edge.
 The choice of padding type and the amount of padding can be adjusted based on the specific requirements of the application and the network architecture. Padding is a simple yet powerful tool in the design of CNNs, enabling more flexible and effective model designs.
 
-### What is strided convolution and why is it needed?
+### Q5. What is strided convolution and why is it needed?
 Answer:   
 
 Strided convolution is a variant of the standard convolution operation used in convolutional neural networks (CNNs), where the filter (or kernel) is applied across the input image or feature map with a certain step size known as the stride. Unlike the standard convolution where the stride is typically 1 (the filter moves one pixel at a time), in strided convolution, the stride can be greater than 1, meaning the filter skips over pixels as it moves across the image.
