@@ -3,7 +3,7 @@ import numpy as np
 def convolve2D(image, kernel):
     """
     Perform a 2D convolution operation without padding and without striding.
-    Assumes kernel is a 3x3 matrix.
+    Assuming kernel is a 3x3 matrix.
     """
     # Dimensions of the image
     image_height, image_width = image.shape
