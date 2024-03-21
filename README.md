@@ -79,7 +79,7 @@ The stride is the step size by which the filter is moved across and down the inp
 Output Image Size Calculation:
 Given these parameters, the size of the output image (also called the feature map) can be calculated for each dimension (width and height) using the formula:
 
-![image](/Users/kinjalbhatia/Desktop/Neural Networks/HW13/HW13/1.png)
+![image!](1.png)
 
 where:
 O is the size of the output image (width or height, depending on which dimension you're calculating for).
