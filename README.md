@@ -7,7 +7,7 @@ Answer:
 
 The convolution operation is a mathematical process commonly used in image processing and deep learning, particularly in Convolutional Neural Networks (CNNs). It serves to apply a filter (also known as a kernel) to an input image or signal to extract certain features, such as edges, textures, or patterns. This operation is central to the functioning of CNNs, where it enables the network to automatically and adaptively learn spatial hierarchies of features.
 
-How Convolution Works:  
+#### How Convolution Works:  
 
 Filter/Kernel: A filter is a small matrix of weights. In the context of image processing, this filter is slid (convolved) across the input image.
 
@@ -17,7 +17,7 @@ Element-wise Multiplication and Sum: For each position of the filter over the im
 
 Feature Map: The process is repeated across the entire image, sliding the filter over all possible positions. Each output value is used to construct a new image, called a feature map, which highlights the presence of specific features detected by the filter in the original image.
 
-Example:  
+#### Example:  
 
 Consider an image represented as a matrix of pixel values and a 3x3 filter. To apply the convolution operation:  
 
@@ -26,7 +26,7 @@ Multiply each element of the filter with the corresponding element of the image 
 Slide the filter to the next position on the right (and eventually down the rows), repeating the multiplication and summing process.
 Continue until the entire image has been covered.
 
-Purpose of Convolution:  
+#### Purpose of Convolution:  
 
 Feature Detection: Different filters can detect different features, such as edges, corners, or textured patterns, by emphasizing pixels where the feature is present.
 Dimensionality Reduction: Through the process of applying filters, convolution can also reduce the dimensionality of the input, focusing on the most relevant information.
@@ -56,7 +56,7 @@ Adaptability: CNNs have been successfully applied not just in image recognition,
 5. Pooling Layers:
 Often coupled with convolutional layers, pooling layers (e.g., max pooling) reduce the spatial size of the representation, decrease the amount of parameters and computation in the network, and help achieve spatial invariance to input modifications. This further contributes to the network's ability to handle variations within the input data.  
 
-Conclusion:
+Conclusion:  
 Convolutional layers allow neural networks to efficiently process spatial data, extract critical features, and build up a hierarchical representation of the input, making them essential for tasks requiring the analysis of visual inputs. The effectiveness of CNNs in a wide range of applications underscores the importance of convolutional layers in contemporary AI and machine learning solutions.
 
 ### How are sizes of the original image, the filter, and the resultant convoluted image are relted?
@@ -89,7 +89,7 @@ O is the size of the output image (width or height, depending on which dimension
 
 This formula ensures that the spatial dimensions of the convolutional output can be determined based on the input image size, filter size, padding, and stride. Adjusting these parameters allows control over the output size, which is crucial for designing neural networks that match specific architectural and performance criteria.
 
-Examples:
+Examples:   
 No Padding (P=0) and Unit Stride (S=1): The output size will be smaller than the input size by the size of the filter minus one. This is the most straightforward case, often resulting in a reduction of the output dimensions.
 Same Padding: Padding is chosen such that the output size is the same as the input size. This typically requires setting P to (FW − 1)/2 for the width dimension, assuming S=1.
 Stride Greater than 1 (S>1): Increases the reduction factor of the output size, effectively down-sampling the input image.
@@ -125,13 +125,13 @@ Answer:
 
 Strided convolution is a variant of the standard convolution operation used in convolutional neural networks (CNNs), where the filter (or kernel) is applied across the input image or feature map with a certain step size known as the stride. Unlike the standard convolution where the stride is typically 1 (the filter moves one pixel at a time), in strided convolution, the stride can be greater than 1, meaning the filter skips over pixels as it moves across the image.
 
-How Strided Convolution Works:
+#### How Strided Convolution Works:
 With a stride of S, the filter jumps S pixels at a time when it slides over the image. For example:
 
 A stride of 2 moves the filter two pixels at a time.
 This results in fewer positions where the filter is applied, reducing the spatial dimensions of the output feature map compared to a stride of 1.  
 
-Why Strided Convolution is Needed  
+#### Why Strided Convolution is Needed  
 
 Dimensionality Reduction:
 
@@ -153,5 +153,5 @@ Feature Extraction at Multiple Scales:
 
 Strided convolutions can help in extracting features at multiple scales or resolutions. By adjusting the stride, a network can be designed to focus on both local details (with smaller strides) and more global patterns (with larger strides), which is beneficial for tasks like object detection where objects of interest can vary significantly in size.  
 
-Conclusion:
+#### Conclusion:
 Strided convolution offers a versatile tool within CNNs for controlling the size of feature maps, improving computational efficiency, and adjusting the network's focus on different scales of features. By carefully choosing the stride, along with other parameters like filter size and padding, it's possible to design highly effective neural networks tailored to a wide range of tasks in image processing, computer vision, and beyond.
